@@ -1,0 +1,54 @@
+erDiagram
+    supplier ||--o{ products : "supplies (1:N)"
+    categories ||--o{ products : "classifies (1:N)"
+    products ||--o{ order_details : "includes (1:N)"
+    orders ||--o{ order_details : "contains (1:N)"
+    customers ||--o{ orders : "places (1:N)"
+    employees ||--o{ orders : "processes (1:N)"
+
+    supplier {
+        tinyint sup_id PK "AUTO_INCREMENT"
+        varchar sup_name "Supplier Name"
+        text address "Location/Address"
+    }
+
+    categories {
+        tinyint cat_id PK "AUTO_INCREMENT"
+        varchar cat_name "Category Name"
+    }
+
+    employees {
+        tinyint emp_id PK "AUTO_INCREMENT"
+        varchar emp_name "Employee Name"
+        varchar hire_date "Hire Date (M/D/YYYY)"
+    }
+
+    customers {
+        smallint cust_id PK "AUTO_INCREMENT"
+        varchar cust_name "Customer Name"
+        text address "Customer Address"
+    }
+
+    products {
+        tinyint prod_id PK "AUTO_INCREMENT"
+        varchar prod_name "Product Name"
+        tinyint sup_id FK "References supplier(sup_id)"
+        tinyint cat_id FK "References categories(cat_id)"
+        decimal price "Price (10,2)"
+    }
+
+    orders {
+        smallint ord_id PK "AUTO_INCREMENT"
+        smallint cust_id FK "References customers(cust_id)"
+        tinyint emp_id FK "References employees(emp_id)"
+        varchar order_date "Order Date (M/D/YYYY)"
+    }
+
+    order_details {
+        smallint ord_detID PK "AUTO_INCREMENT"
+        smallint ord_id FK "References orders(ord_id)"
+        tinyint prod_id FK "References products(prod_id)"
+        tinyint quantity "Quantity Ordered"
+        decimal each_price "Unit Price (10,2)"
+        decimal total_price "Line Total (10,2)"
+    }

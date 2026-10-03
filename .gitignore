@@ -1,0 +1,49 @@
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+*.swp
+*.swo
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary & Log Files
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+
+# Python & Build Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+.coverage
+htmlcov/
+venv/
+env/
+.env
+
+# Database & Security Credentials
+credentials*
+secrets*
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.my.cnf
+*.cnf
+.env.*
+
+# Large Database Dumps
+*.dump
+*.tar.gz
